@@ -122,16 +122,5 @@ footer {
     font-size: 30px; /* Tamaño del ícono */
     color: #E1306C; /* Color de Instagram */
 }
-
-/* Animación del fondo */
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%; /* Posición inicial */
-    }
-    50% {
-        background-position: 100% 50%; /* Posición intermedia */
-    }
-    100% {
-        background-position: 0% 50%; /* Posición final */
-    }
+    
 }
