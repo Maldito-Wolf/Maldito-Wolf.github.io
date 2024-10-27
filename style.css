@@ -115,3 +115,8 @@ footer {
     height: 70px; /* Aumenta el tamaño de la imagen */
     border-radius: 50%; /* Hacer la imagen redonda */
     border: 3px solid white; /*
+}
+  .logo-instagram {
+    width: 30px; /* Ajusta el tamaño de la imagen de Instagram */
+    height: auto;
+}
