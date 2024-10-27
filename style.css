@@ -116,15 +116,12 @@ footer {
     height: 70px; /* Aumenta el tamaño de la imagen */
     border-radius: 50%; /* Hacer la imagen redonda */
     border: 3px solid white; /* Borde blanco */
-}
-
 .fa-instagram {
     font-size: 30px; /* Tamaño del ícono */
     color: #E1306C; /* Color de Instagram */
-
- .fa-whatsapp {
-    font-size: 30px; /* Tamaño del ícono */
-    color: #25D366; /* Color verde de WhatsApp */
 }
 
+.fa-whatsapp {
+    font-size: 30px; /* Tamaño del ícono */
+    color: #25D366; /* Color verde de WhatsApp */
 }
