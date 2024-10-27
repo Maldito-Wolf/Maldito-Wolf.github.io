@@ -6,6 +6,7 @@
     <title>Servicios</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome -->
     <style>
         #map {
             height: 400px; /* Altura del mapa */
@@ -27,7 +28,7 @@
             <h2>Viajes Especiales</h2>
             <p>Realizamos viajes especiales principalmente del aeropuerto hacia la puerta de tu lugar de estadía y viceversa.</p>
         </section>
-	<section>
+        <section>
             <h2>Turismo</h2>
             <p>Explora los mejores destinos turísticos con nosotros. Te llevamos a los lugares más emblemáticos y te ofrecemos una experiencia inolvidable.</p>
         </section>
@@ -39,11 +40,18 @@
         </section>
     </main>
 
+    <!-- Ícono de Instagram -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com/tu_usuario_de_instagram/" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+
     <footer>
         <p>&copy; 2024 Lazos Urbanos</p>
     </footer>
 
- <!-- Enlace flotante a WhatsApp -->
+    <!-- Enlace flotante a WhatsApp -->
     <a href="https://wa.me/56935346341" target="_blank" class="whatsapp-float">
         <img src="img/whatsapp-icon.png" alt="Contáctanos por WhatsApp" style="width: 120px; height: 90px;">
     </a>
@@ -52,44 +60,7 @@
     <script>
         const map = L.map('map').setView([-33.4489, -70.6693], 13); // Centrar en Santiago
 
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-        }).addTo(map);
-
-        let markers = [];
-        const markerLayer = L.layerGroup().addTo(map); // Grupo de marcadores para manejo
-
-        map.on('click', function(e) {
-            const { lat, lng } = e.latlng;
-
-            // Si ya hay 2 marcadores, eliminar los existentes antes de agregar el nuevo
-            if (markers.length >= 2) {
-                markerLayer.clearLayers(); // Limpiar marcadores existentes
-                markers = []; // Reiniciar array de marcadores
-            }
-
-            const marker = L.marker([lat, lng]).addTo(markerLayer); // Agregar nuevo marcador
-            markers.push([lat, lng]);
-
-            if (markers.length === 2) {
-                const distance = haversine(markers[0][0], markers[0][1], markers[1][0], markers[1][1]);
-                const cost = distance * 1200; // Costo en CLP
-                document.getElementById('result').innerText = `Distancia: ${distance.toFixed(2)} km - Costo Aproximado: ${cost.toFixed(0)} CLP`;
-            }
-        });
-
-        function haversine(lat1, lon1, lat2, lon2) {
-            const R = 6371; // Radio de la Tierra en km
-            const dLat = (lat2 - lat1) * Math.PI / 180;
-            const dLon = (lon2 - lon1) * Math.PI / 180;
-
-            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
-                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
-            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-            return R * c; // Distancia en km
-        }
+        L.ti
 
     </script>
 </body>
