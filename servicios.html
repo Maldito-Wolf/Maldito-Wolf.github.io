@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 400px; /* Altura del mapa */
+            margin-top: 20px; /* Espacio superior */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lazos Urbanos</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Viajes Especiales</h2>
+            <p>Realizamos viajes especiales principalmente del aeropuerto hacia la puerta de tu lugar de estadía y viceversa.</p>
+        </section>
+	<section>
+            <h2>Turismo</h2>
+            <p>Explora los mejores destinos turísticos con nosotros. Te llevamos a los lugares más emblemáticos y te ofrecemos una experiencia inolvidable.</p>
+        </section>
+        <section>
+            <h2>Mapa de Santiago</h2>
+            <p>Selecciona dos puntos en el mapa para calcular la distancia y el costo aproximado.</p>
+            <div id="map"></div> <!-- Aquí se mostrará el mapa -->
+            <p id="result"></p> <!-- Aquí se mostrará el resultado de la distancia y costo -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Lazos Urbanos</p>
+    </footer>
+
+ <!-- Enlace flotante a WhatsApp -->
+    <a href="https://wa.me/56935346341" target="_blank" class="whatsapp-float">
+        <img src="img/whatsapp-icon.png" alt="Contáctanos por WhatsApp" style="width: 120px; height: 90px;">
+    </a>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([-33.4489, -70.6693], 13); // Centrar en Santiago
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        let markers = [];
+        const markerLayer = L.layerGroup().addTo(map); // Grupo de marcadores para manejo
+
+        map.on('click', function(e) {
+            const { lat, lng } = e.latlng;
+
+            // Si ya hay 2 marcadores, eliminar los existentes antes de agregar el nuevo
+            if (markers.length >= 2) {
+                markerLayer.clearLayers(); // Limpiar marcadores existentes
+                markers = []; // Reiniciar array de marcadores
+            }
+
+            const marker = L.marker([lat, lng]).addTo(markerLayer); // Agregar nuevo marcador
+            markers.push([lat, lng]);
+
+            if (markers.length === 2) {
+                const distance = haversine(markers[0][0], markers[0][1], markers[1][0], markers[1][1]);
+                const cost = distance * 1200; // Costo en CLP
+                document.getElementById('result').innerText = `Distancia: ${distance.toFixed(2)} km - Costo Aproximado: ${cost.toFixed(0)} CLP`;
+            }
+        });
+
+        function haversine(lat1, lon1, lat2, lon2) {
+            const R = 6371; // Radio de la Tierra en km
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+
+            const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            return R * c; // Distancia en km
+        }
+
+    </script>
+</body>
+</html>
