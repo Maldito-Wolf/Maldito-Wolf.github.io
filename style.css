@@ -1,11 +1,11 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap');
 
 h1 {
-  font-family: "Gravitas One", serif;
-  font-weight: 400;
-  font-style: normal;
-}  
+    font-family: "Gravitas One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 /* Reset de márgenes y padding */
 * {
     margin: 0;
@@ -20,7 +20,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #000; /* Color negro para el fondo */
+    margin: 0;
+    height: 100vh; /* Asegúrate de que el fondo cubra toda la pantalla */
+    background: linear-gradient(270deg, #1a1a1a, #4d4d4d); /* Colores del gradiente */
+    background-size: 400% 400%; /* Tamaño del fondo para permitir la animación */
+    animation: gradient 15s ease infinite; /* Configura la animación */
 }
 
 /* Estilos del encabezado */
@@ -108,7 +112,8 @@ footer {
     bottom: 20px; /* Distancia del borde inferior */
     right: 20px; /* Distancia del borde derecho */
     z-index: 1000; /* Asegura que esté en la parte superior */
-  
+}
+
 .whatsapp-icon {
     width: 70px; /* Aumenta el tamaño de la imagen */
     height: 70px; /* Aumenta el tamaño de la imagen */
@@ -121,14 +126,7 @@ footer {
     color: #E1306C; /* Color de Instagram */
 }
 
-  body {
-    margin: 0;
-    height: 100vh; /* Asegúrate de que el fondo cubra toda la pantalla */
-    background: linear-gradient(270deg, #1a1a1a, #4d4d4d); /* Colores del gradiente */
-    background-size: 400% 400%; /* Tamaño del fondo para permitir la animación */
-    animation: gradient 15s ease infinite; /* Configura la animación */
-}
-
+/* Animación del fondo */
 @keyframes gradient {
     0% {
         background-position: 0% 50%; /* Posición inicial */
@@ -140,4 +138,3 @@ footer {
         background-position: 0% 50%; /* Posición final */
     }
 }
-
