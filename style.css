@@ -116,8 +116,8 @@ footer {
     border: 3px solid white; /* Borde blanco */
 }
 
-.logo-instagram {
-    width: 11px; /* Ajusta el tamaño de la imagen de Instagram */
-    height: auto;
+.fa-instagram {
+    font-size: 24px; /* Tamaño del ícono */
+    color: #E1306C; /* Color de Instagram */
 }
 
