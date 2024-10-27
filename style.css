@@ -22,10 +22,7 @@ body {
     align-items: center;
     margin: 0;
     height: 100vh; /* Asegúrate de que el fondo cubra toda la pantalla */
-    background: linear-gradient(270deg, #1a1a1a, #4d4d4d); /* Colores del gradiente */
-    background-size: 400% 400%; /* Tamaño del fondo para permitir la animación */
-    animation: gradient 15s ease infinite; /* Configura la animación */
-}
+    background-color: #000; /* Color negro sólido */
 
 /* Estilos del encabezado */
 header {
