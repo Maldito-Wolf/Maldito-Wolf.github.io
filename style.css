@@ -121,6 +121,12 @@ footer {
 .fa-instagram {
     font-size: 30px; /* Tamaño del ícono */
     color: #E1306C; /* Color de Instagram */
+
+ .fa-whatsapp {
+    font-size: 30px; /* Tamaño del ícono */
+    color: #25D366; /* Color verde de WhatsApp */
+}
+
 }
     
 }
