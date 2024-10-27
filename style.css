@@ -108,15 +108,16 @@ footer {
     bottom: 20px; /* Distancia del borde inferior */
     right: 20px; /* Distancia del borde derecho */
     z-index: 1000; /* Asegura que esté en la parte superior */
-}
-
+  
 .whatsapp-icon {
     width: 70px; /* Aumenta el tamaño de la imagen */
     height: 70px; /* Aumenta el tamaño de la imagen */
     border-radius: 50%; /* Hacer la imagen redonda */
-    border: 3px solid white; /*
+    border: 3px solid white; /* Borde blanco */
 }
-  .logo-instagram {
-    width: 30px; /* Ajusta el tamaño de la imagen de Instagram */
+
+.logo-instagram {
+    width: 11px; /* Ajusta el tamaño de la imagen de Instagram */
     height: auto;
 }
+
