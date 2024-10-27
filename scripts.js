@@ -13,9 +13,12 @@ function mostrarImagen(indice) {
     document.querySelector('.carrusel-images').style.transform = `translateX(${offset}%)`;
 }
 
-function cambiarImagen(direccion) {
+function cambiarImagen(direccion = 1) {
     mostrarImagen(indiceImagen + direccion);
 }
 
 // Inicializar el carrusel mostrando la primera imagen
 mostrarImagen(indiceImagen);
+
+// Cambiar imagen automáticamente cada 3 segundos
+setInterval(() => cambiarImagen(1), 3000);
