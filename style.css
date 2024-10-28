@@ -152,3 +152,18 @@ footer {
     text-decoration: none;
 }
 
+    .main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.carrusel {
+    width: 70%; /* Ajusta según el espacio deseado */
+}
+
+.sidebar {
+    width: 25%; /* Ajusta el ancho según lo necesites */
+    margin-left: 20px;
+}
+
